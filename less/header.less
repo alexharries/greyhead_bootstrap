@@ -48,6 +48,36 @@
   }
 }
 
+// Override the navbar styling.
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: initial;
+  margin-top: 10px;
+}
+
+.navbar-default .navbar-nav {
+  > .active > a,
+  > .active > a:hover,
+  > .active > a:focus,
+  > li > a:hover,
+  > li > a.active-trail,
+  > .open > a,
+  > .open > a:hover,
+  > .open > a:focus {
+    background-color: transparent;
+    color: #000;
+  }
+
+  > .active > a:hover,
+  > .active > a:focus,
+  > li > a:hover,
+  > .open > a:hover,
+  > .open > a:focus {
+    text-decoration: underline;
+  }
+}
+
 // Hide the .navbar-toggle-label.
 .navbar-toggle-label {
   display: none;
@@ -62,6 +92,8 @@ h1.site-name-link {
     float: none;
     padding: 0;
     margin: 13px 20px 13px 0;
+    display: inline-block;
+    font-size: 30px;
   }
 }
 
