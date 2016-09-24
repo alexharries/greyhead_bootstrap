@@ -5,13 +5,13 @@
 ?>
 
 <div class="row">
-  <div class="container-may-be-fluid">
+  <div class="container container-may-be-fluid">
     <div class="breadcrumbs"><?php print $breadcrumb ?></div>
   </div>
 </div>
 
 <div class="row">
-  <div class="container-may-be-fluid">
+  <div class="container container-may-be-fluid">
     <?php if (!empty($page['highlighted'])): ?>
       <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
     <?php endif; ?>

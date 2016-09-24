@@ -14,7 +14,7 @@
     <!-- Header row 1 - site logo and primary menu -->
     <div class="navbar-row-1 clearfix">
       <div class="row">
-        <div class="container">
+        <div class="container-may-be-fluid">
           <div class="navbar-header">
             <div class="site-info">
               <div class="site-name-link-and-slogan">
