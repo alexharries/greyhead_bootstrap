@@ -151,6 +151,13 @@ function greyhead_bootstrap_preprocess_page(&$variables) {
   if (!isset($variables['breadcrumb'])) {
     $variables['breadcrumb'] = theme('breadcrumb', array('breadcrumb' => greyhead_bootstrap_drupal_get_breadcrumb()));
   }
+  
+  // Add icon font to the page.
+  drupal_add_html_head_link(array(
+    'rel' => 'stylesheet',
+    'href' => '//fonts.googleapis.com/css?family=Della+Respira|Raleway:400,400i,700,700i|Tangerine',
+    'type' => 'text/css'
+  ));
 }
 
 /**
