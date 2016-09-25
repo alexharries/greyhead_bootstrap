@@ -9191,6 +9191,9 @@ img.file-icon {
   width: auto;
 }
 
+.eleganticon {
+  font-size: 1.8em;
+}
 .navbar-header {
   float: none;
 }
