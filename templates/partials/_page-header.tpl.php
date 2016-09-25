@@ -32,50 +32,66 @@
               </div>
             </div>
 
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <span class="navbar-toggle-container">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <span class="navbar-toggle-label"><?php print t('Menu') ?></span>
-            </span>
-
             <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
-              <div class="navbar-container navbar-collapse collapse">
+              <!-- We create an empty span to hide/show the main menu. If JS is
+                   enabled, we will then hide the main menu until the toggle is
+                   clicked. No JS? No problem - we just won't hide it. -->
+              <span id="toggle-header-menu"
+                class="eleganticon toggler only-visible-with-js"
+                data-state="closed"
+                data-closed-class="icon_menu"
+                data-open-class="icon_close_alt2"
+                data-target="header-menu-collapsible"></span>
+
+              <div id="header-menu-collapsible" class="showhideable-target header-menu-container only-visible-without-js">
                 <nav role="navigation">
                   <?php if ($primary_nav_rendered = render($primary_nav)): ?>
-                    <?php print $primary_nav_rendered; ?>
+                    <div class="row">
+                      <div class="container-fluid">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                          <?php print $primary_nav_rendered; ?>
+                        </div>
+                        <div class="col-md-3"></div>
+                      </div>
+                    </div>
                   <?php endif; ?>
 
                   <?php if ($navigation = render($page['navigation'])): ?>
-                    <?php print $navigation; ?>
+                    <div class="row">
+                      <div class="container-fluid">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                          <?php print $navigation; ?>
+                        </div>
+                        <div class="col-md-3"></div>
+                      </div>
+                    </div>
                   <?php endif; ?>
                 </nav>
               </div>
             <?php endif; ?>
+
+            <?php
+            // If search is allowed, display a hideable/showable search form.
+            if ($header_search_rendered = render($header_search)): ?>
+              <!-- We create an empty span to hide/show the main menu. If JS is
+                   enabled, we will then hide the main menu until the toggle is
+                   clicked. No JS? No problem - we just won't hide it. -->
+              <span id="toggle-header-search"
+                class="eleganticon toggler only-visible-with-js toggler-close-top-right"
+                data-state="closed"
+                data-closed-class="icon_search"
+                data-open-class="icon_close_alt2"
+                data-target="header-search-collapsible"></span>
+
+              <div id="header-search-collapsible" class="showhideable-target header-search-container only-visible-without-js">
+                <?php print $header_search_rendered ?>
+              </div>
+            <?php endif ?>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Header row 2 - secondary menu, if populated -->
-  <!--    @TODO: hide/move on mobile to bottom of page? -->
-  <?php if (!empty($secondary_nav) || !empty($page['secondary_navigation'])): ?>
-    <div class="navbar-row-2 clearfix">
-      <div class="row">
-        <div class="container">
-          <?php print render($secondary_nav); ?>
-
-          <?php if ($secondary_navigation = render($page['secondary_navigation'])): ?>
-            <?php print $secondary_navigation; ?>
-          <?php endif; ?>
-        </div>
-      </div>
-    </div>
-  <?php endif; ?>
-
 </header>
