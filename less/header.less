@@ -1,4 +1,30 @@
 // Header styling.
+
+// Fix header#navbar to page top.
+header#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 0;
+}
+
+body > .main-container {
+  margin-top: 30px;
+}
+
+// Move the top menu and main container down to account for the admin menu.
+body.admin-menu > header#navbar {
+  top: 30px;
+}
+
+body.admin-menu > .main-container {
+  margin-top: 85px;
+}
+
 // Don't float .navbar-header.
 .navbar-header {
   float: none;
@@ -32,7 +58,7 @@
   }
 
   .navbar-search .control-group {
-    margin-bottom:0px;
+    margin-bottom: 0px;
   }
 
   .nav {
@@ -46,14 +72,30 @@
       }
     }
   }
+
+  // Hideable/showable main menu and search styling.
+  .toggler {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+  }
+
+  #toggle-header-menu.toggler {
+    right: 5px;
+  }
+
+  #toggle-header-search.toggler {
+    right: 55px;
+  }
 }
 
 // Override the navbar styling.
 .navbar-nav > li > a {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 0.5em 1em;
+  margin: 0 0 0 1em;
   line-height: initial;
-  margin-top: 10px;
+  font-size: 1.5em;
 }
 
 .navbar-default .navbar-nav {
@@ -78,6 +120,26 @@
   }
 }
 
+@media @tablet {
+  .navbar-header {
+    margin-top: 0.25em;
+    margin-left: 1em;
+  }
+
+  .navbar-nav {
+    float: none;
+    margin: 0;
+  }
+
+  //.navbar-nav > li {
+  //  font-size: 1.3em;
+  //}
+  //.navbar-nav > li > a {
+  //  padding-top: 15px;
+  //  padding-bottom: 15px;
+  //}
+}
+
 // Hide the .navbar-toggle-label.
 .navbar-toggle-label {
   display: none;
@@ -87,13 +149,29 @@
 h1.site-name-link {
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   a.navbar-brand {
     float: none;
-    padding: 0;
-    margin: 13px 20px 13px 0;
+    padding: 0.5em 0.5em 0.25em 0.5em;
+    margin: 0;
     display: inline-block;
-    font-size: 30px;
+    font-size: 1em;
+  }
+}
+
+header#navbar {
+  h1.site-name-link.toggler-open {
+    top: 0;
+    right: auto;
+    left: 0;
+
+    a.navbar-brand {
+      color: #fff;
+      z-index: 100002;
+    }
   }
 }
 

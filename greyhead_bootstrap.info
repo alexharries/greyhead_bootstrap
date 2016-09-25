@@ -64,10 +64,13 @@ settings[bootstrap_cdn] = ''
 ; is overrides to Bootstrap theme settings. Copy them here from the base theme
 ; to override.
 
-
 ;
 ; CUSTOM BITS
 ;
+; Empty smartmenus files because we don't want 'em thanks :)
+scripts[] = 'js/jquery.smartmenus.js'
+scripts[] = 'addons/bootstrap/jquery.smartmenus.bootstrap.js'
+scripts[] = 'js/greyhead_bootstrap.js'
 
 ; Multi-platform/device hover menus
 ; - See more at: http://webmar.com.au/blog/drupal-bootstrap-3-multilevel-submenus-hover#sthash.VBLa4qgk.dpuf
