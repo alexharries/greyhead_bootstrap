@@ -24,7 +24,7 @@ regions[page_bottom]    = 'Page bottom'
 ;;;;;;;;;;;;;;;;;;;;;
 
 stylesheets[all][] = css/subtheme-styles.css
-;stylesheets[all][] = css/custom.css
+stylesheets[all][] = css/iconfont.css
 
 
 ; For information on choosing the desired method, please read the Drupal
