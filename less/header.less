@@ -1,157 +1,213 @@
 // Header styling.
-
-// Fix header#navbar to page top.
-header#navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 55px;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 0;
-}
-
-body > .main-container {
-  margin-top: 30px;
-}
-
-// Move the top menu and main container down to account for the admin menu.
-body.admin-menu > header#navbar {
-  top: 30px;
-}
-
-body.admin-menu > .main-container {
-  margin-top: 85px;
-}
-
-// Don't float .navbar-header.
 .navbar-header {
-  float: none;
-
-  .site-info,
-  .region-navigation .block {
-    float: left;
+  a,
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus,
+  .navbar-nav > li > a,
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a.active-trail,
+  .navbar-nav > .open > a,
+  .navbar-nav > .open > a:hover,
+  .navbar-nav > .open > a:focus {
+    background-color: transparent;
   }
 
-  .region-navigation .block {
-    margin-top: 0.5em;
+  // Hide sub-menus unless we have JS.
+  ul.navbar-nav ul {
+    display: none;
+  }
+}
+
+// Header styling for JS-enabled pages only.
+html.js {
+  // Fix header#navbar to page top.
+  header#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 0;
   }
 
-  // Search form.
-  form#search-block-form {
-    margin: 0;
+  body > .main-container {
+    margin-top: 30px;
   }
 
-  #block-search-form {
+  // Move the top menu and main container down to account for the admin menu.
+  body.admin-menu > header#navbar {
+    top: 30px;
+  }
+
+  body.admin-menu > .main-container {
+    margin-top: 85px;
+  }
+
+  // Don't float .navbar-header.
+  .navbar-header {
     float: none;
-    margin: 5px 0 5px 5px;
 
-    @media @tablet {
-      max-width: 25%;
-      float: right;
+    .site-info,
+    .region-navigation .block {
+      float: left;
     }
 
-    .form-group {
-      margin-bottom: 0;
+    .region-navigation .block {
+      margin-top: 0.5em;
     }
-  }
 
-  .navbar-search .control-group {
-    margin-bottom: 0px;
-  }
+    // Search form.
+    form#search-block-form {
+      margin: 0;
+    }
 
-  .nav {
-    li {
-      display: inline-block;
+    #block-search-form {
+      float: none;
+      margin: 5px 0 5px 5px;
 
-      a {
-        span.glyphicon {
-          display: none;
+      @media @tablet {
+        max-width: 25%;
+        float: right;
+      }
+
+      .form-group {
+        margin-bottom: 0;
+      }
+    }
+
+    .navbar-search .control-group {
+      margin-bottom: 0px;
+    }
+
+    .nav {
+      li {
+        a {
+          span.glyphicon {
+            display: none;
+          }
         }
       }
     }
-  }
 
-  // Hideable/showable main menu and search styling.
-  .toggler {
-    display: block;
-    padding: 10px;
+    // Hide sub-menus unless we have JS.
+    ul.navbar-nav ul {
+      display: block;
+    }
+
+    // Hideable/showable main menu and search styling.
+    .toggler {
+      display: block;
+      padding: 10px;
+      position: absolute;
+      top: 5px;
+
+      &.toggler-open {
+        color: #fff;
+      }
+    }
+
+    #toggle-header-menu.toggler {
+      right: 5px;
+    }
+
+    #toggle-header-search.toggler {
+      right: 55px;
+    }
+
+    .showhideable-target {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 50px 0 100px 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+
+      &.header-search-container {
+        padding-top: 100px;
+      }
+
+      ul {
+        margin: 0.5em 0;
+        padding: 0;
+      }
+
+      &,
+      a,
+      .navbar-nav > .active > a,
+      .navbar-nav > .active > a:hover,
+      .navbar-nav > .active > a:focus,
+      .navbar-nav > li > a,
+      .navbar-nav > li > a:hover,
+      .navbar-nav > li > a.active-trail,
+      .navbar-nav > .open > a,
+      .navbar-nav > .open > a:hover,
+      .navbar-nav > .open > a:focus {
+        color: #fff;
+      }
+
+      // Override the navbar styling.
+      .navbar-nav > li > a {
+        line-height: initial;
+        font-size: 1.8em;
+      }
+
+      .navbar-nav > li > ul > li > a {
+        line-height: initial;
+        font-size: 1.2em;
+      }
+
+      a {
+        // We use pixels left and right instead of ems to align different
+        // font-sizes vertically.
+        padding: 0.5em 5px;
+        margin: 0;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    // Make sure togglers are moved to the top-right when open in the header.
+    .toggler-open,
+    #toggle-header-menu.toggler-open,
+    #toggle-header-search.toggler-open {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      z-index: 10001;
+    }
+  }
+  // Don't pad the H1 with the site name in the header.
+  h1.site-name-link {
     position: absolute;
-    top: 5px;
+    top: 0;
+    left: 0;
+
+    a.navbar-brand {
+    }
   }
 
-  #toggle-header-menu.toggler {
-    right: 5px;
-  }
+  header#navbar {
+    h1.site-name-link.toggler-open {
+      top: 0;
+      right: auto;
+      left: 0;
 
-  #toggle-header-search.toggler {
-    right: 55px;
-  }
-}
-
-// Override the navbar styling.
-.navbar-nav > li > a {
-  padding: 0.5em 1em;
-  margin: 0 0 0 1em;
-  line-height: initial;
-  font-size: 1.5em;
-}
-
-.navbar-default .navbar-nav {
-  > .active > a,
-  > .active > a:hover,
-  > .active > a:focus,
-  > li > a:hover,
-  > li > a.active-trail,
-  > .open > a,
-  > .open > a:hover,
-  > .open > a:focus {
-    background-color: transparent;
-    color: #000;
-  }
-
-  > .active > a:hover,
-  > .active > a:focus,
-  > li > a:hover,
-  > .open > a:hover,
-  > .open > a:focus {
-    text-decoration: underline;
+      a.navbar-brand {
+        color: #fff;
+        z-index: 100002;
+      }
+    }
   }
 }
 
-@media @tablet {
-  .navbar-header {
-    margin-top: 0.25em;
-    margin-left: 1em;
-  }
-
-  .navbar-nav {
-    float: none;
-    margin: 0;
-  }
-
-  //.navbar-nav > li {
-  //  font-size: 1.3em;
-  //}
-  //.navbar-nav > li > a {
-  //  padding-top: 15px;
-  //  padding-bottom: 15px;
-  //}
-}
-
-// Hide the .navbar-toggle-label.
-.navbar-toggle-label {
-  display: none;
-}
-
-// Don't pad the H1 with the site name in the header.
 h1.site-name-link {
   margin: 0;
   padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
 
   a.navbar-brand {
     float: none;
@@ -162,17 +218,52 @@ h1.site-name-link {
   }
 }
 
-header#navbar {
-  h1.site-name-link.toggler-open {
-    top: 0;
-    right: auto;
-    left: 0;
+//
+//.navbar-default .navbar-nav {
+//  > .active > a,
+//  > .active > a:hover,
+//  > .active > a:focus,
+//  > li > a:hover,
+//  > li > a.active-trail,
+//  > .open > a,
+//  > .open > a:hover,
+//  > .open > a:focus {
+//    background-color: transparent;
+//    color: #000;
+//  }
+//
+//  > .active > a:hover,
+//  > .active > a:focus,
+//  > li > a:hover,
+//  > .open > a:hover,
+//  > .open > a:focus {
+//    text-decoration: underline;
+//  }
+//}
+//
+//@media @tablet {
+//  .navbar-header {
+//    margin-top: 0.25em;
+//    margin-left: 1em;
+//  }
+//
+//  .navbar-nav {
+//    float: none;
+//    margin: 0;
+//  }
+//
+//  //.navbar-nav > li {
+//  //  font-size: 1.3em;
+//  //}
+//  //.navbar-nav > li > a {
+//  //  padding-top: 15px;
+//  //  padding-bottom: 15px;
+//  //}
+//}
 
-    a.navbar-brand {
-      color: #fff;
-      z-index: 100002;
-    }
-  }
+// Hide the .navbar-toggle-label.
+.navbar-toggle-label {
+  display: none;
 }
 
 // Remove the boring default grey from the header.
