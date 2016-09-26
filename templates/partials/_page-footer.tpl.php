@@ -2,6 +2,9 @@
 /**
  * @file: page footer partial.
  */
+
+$secondary_nav = render($secondary_nav);
+$secondary_navigation = render($page['secondary_navigation']);
 ?>
 
 <?php if ($just_above_footer = render($page['justabovefooter'])): ?>
@@ -16,25 +19,28 @@
   <footer class="footer">
 
     <!-- Secondary menu, if populated -->
-    <?php if (($secondary_nav = render($secondary_nav)) || ($secondary_navigation = render($page['secondary_navigation']))): ?>
+    <?php if (!empty($secondary_nav) || !empty($secondary_navigation)): ?>
       <div class="row">
         <div class="container">
-          <?php print isset($secondary_nav) ? $secondary_nav : NULL; ?>
-
-          <?php print isset($secondary_navigation) ? $secondary_navigation : NULL; ?>
+          <div class="col-xs-12">
+            <?php print $secondary_nav ?>
+            <?php print $secondary_navigation ?>
+          </div>
         </div>
       </div>
     <?php endif; ?>
 
     <div class="row">
       <div class="container">
-        <?php print render($page['footer']) ?>
+        <div class="col-xs-12">
+          <?php print render($page['footer']) ?>
 
-        <?php if (isset($logo) && !empty($logo)): ?>
-          <a class="logo navbar-btn pull-right" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-            <img src="<?php print $logo; ?>" class="logo" alt="<?php print t('Home'); ?>"/>
-          </a>
-        <?php endif ?>
+          <?php if (isset($logo) && !empty($logo)): ?>
+            <a class="logo navbar-btn pull-right" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+              <img src="<?php print $logo; ?>" class="logo" alt="<?php print t('Home'); ?>"/>
+            </a>
+          <?php endif ?>
+        </div>
       </div>
     </div>
   </footer>
