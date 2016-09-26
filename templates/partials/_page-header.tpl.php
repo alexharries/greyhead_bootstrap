@@ -48,11 +48,11 @@
                   <?php if ($primary_nav_rendered = render($primary_nav)): ?>
                     <div class="row">
                       <div class="container-fluid">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
+                        <div class="col-md-3 col-xs-1"></div>
+                        <div class="col-md-6 col-xs-10">
                           <?php print $primary_nav_rendered; ?>
                         </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-3 col-xs-1"></div>
                       </div>
                     </div>
                   <?php endif; ?>
@@ -60,11 +60,11 @@
                   <?php if ($header_mainmenu = render($page['header_mainmenu'])): ?>
                     <div class="row">
                       <div class="container-fluid">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                          <?php print $navigation; ?>
+                        <div class="col-md-3 col-xs-1"></div>
+                        <div class="col-md-6 col-xs-10">
+                          <?php print $header_mainmenu; ?>
                         </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-3 col-xs-1"></div>
                       </div>
                     </div>
                   <?php endif; ?>
@@ -86,8 +86,30 @@
                 data-target="header-search-collapsible"></span>
 
               <div id="header-search-collapsible" class="showhideable-target header-search-container only-visible-without-js">
-                <?php print $header_search_rendered ?>
+                <div class="row">
+                  <div class="container-fluid">
+                    <div class="col-md-3 col-xs-1"></div>
+                    <div class="col-md-6 col-xs-10">
+                      <?php print $header_search_rendered ?>
+                    </div>
+                    <div class="col-md-3 col-xs-1"></div>
+                  </div>
+                </div>
               </div>
+
+              <?php
+              // Do we have content below the search block?
+              if ($header_search = render($page['header_search'])): ?>
+                <div class="row">
+                  <div class="container-fluid">
+                    <div class="col-md-3 col-xs-1"></div>
+                    <div class="col-md-6 col-xs-10">
+                      <?php print $header_search; ?>
+                    </div>
+                    <div class="col-md-3 col-xs-1"></div>
+                  </div>
+                </div>
+              <?php endif; ?>
             <?php endif ?>
           </div>
         </div>
