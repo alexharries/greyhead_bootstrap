@@ -4032,7 +4032,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: transparent;
 }
 .nav > li.disabled > a {
   color: #999999;
@@ -4047,7 +4047,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eeeeee;
+  background-color: transparent;
   border-color: #428bca;
 }
 .nav .nav-divider {
@@ -7497,132 +7497,173 @@ img.file-icon {
   font-size: 1.8em;
 }
 .toggler {
+  display: none;
+}
+html.js .toggler {
   cursor: pointer;
   display: inline-block;
   padding: 5px;
   margin: 0.125em;
 }
-.toggler-open,
-header#navbar #toggle-header-menu.toggler-open,
-header#navbar #toggle-header-search.toggler-open {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10001;
-}
 html.js .only-visible-with-js,
 html.js .only-visible-without-js {
   display: none;
 }
-header#navbar {
+.nav li {
+  display: inline-block;
+}
+.navbar-header a,
+.navbar-header .navbar-nav > .active > a,
+.navbar-header .navbar-nav > .active > a:hover,
+.navbar-header .navbar-nav > .active > a:focus,
+.navbar-header .navbar-nav > li > a,
+.navbar-header .navbar-nav > li > a:hover,
+.navbar-header .navbar-nav > li > a.active-trail,
+.navbar-header .navbar-nav > .open > a,
+.navbar-header .navbar-nav > .open > a:hover,
+.navbar-header .navbar-nav > .open > a:focus {
+  background-color: transparent;
+}
+.navbar-header ul.navbar-nav ul {
+  display: none;
+}
+html.js header#navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 55px;
+  height: 60px;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 0;
 }
-body > .main-container {
+html.js body > .main-container {
   margin-top: 30px;
 }
-body.admin-menu > header#navbar {
+html.js body.admin-menu > header#navbar {
   top: 30px;
 }
-body.admin-menu > .main-container {
+html.js body.admin-menu > .main-container {
   margin-top: 85px;
 }
-.navbar-header {
+html.js .navbar-header {
   float: none;
 }
-.navbar-header .site-info,
-.navbar-header .region-navigation .block {
+html.js .navbar-header .site-info,
+html.js .navbar-header .region-navigation .block {
   float: left;
 }
-.navbar-header .region-navigation .block {
+html.js .navbar-header .region-navigation .block {
   margin-top: 0.5em;
 }
-.navbar-header form#search-block-form {
+html.js .navbar-header form#search-block-form {
   margin: 0;
 }
-.navbar-header #block-search-form {
+html.js .navbar-header #block-search-form {
   float: none;
   margin: 5px 0 5px 5px;
 }
 @media screen and (min-width: 768px) {
-  .navbar-header #block-search-form {
+  html.js .navbar-header #block-search-form {
     max-width: 25%;
     float: right;
   }
 }
-.navbar-header #block-search-form .form-group {
+html.js .navbar-header #block-search-form .form-group {
   margin-bottom: 0;
 }
-.navbar-header .navbar-search .control-group {
+html.js .navbar-header .navbar-search .control-group {
   margin-bottom: 0px;
 }
-.navbar-header .nav li {
-  display: inline-block;
-}
-.navbar-header .nav li a span.glyphicon {
+html.js .navbar-header .nav li a span.glyphicon {
   display: none;
 }
-.navbar-header .toggler {
+html.js .navbar-header ul.navbar-nav ul {
+  display: block;
+}
+html.js .navbar-header .toggler {
   display: block;
   padding: 10px;
   position: absolute;
   top: 5px;
 }
-.navbar-header #toggle-header-menu.toggler {
+html.js .navbar-header .toggler.toggler-open {
+  color: #fff;
+}
+html.js .navbar-header #toggle-header-menu.toggler {
   right: 5px;
 }
-.navbar-header #toggle-header-search.toggler {
+html.js .navbar-header #toggle-header-search.toggler {
   right: 55px;
 }
-.navbar-nav > li > a {
-  padding: 0.5em 1em;
-  margin: 0 0 0 1em;
+html.js .navbar-header .showhideable-target {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 50px 0 100px 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+html.js .navbar-header .showhideable-target.header-search-container {
+  padding-top: 100px;
+}
+html.js .navbar-header .showhideable-target ul {
+  margin: 0.5em 0;
+  padding: 0;
+}
+html.js .navbar-header .showhideable-target,
+html.js .navbar-header .showhideable-target a,
+html.js .navbar-header .showhideable-target .navbar-nav > .active > a,
+html.js .navbar-header .showhideable-target .navbar-nav > .active > a:hover,
+html.js .navbar-header .showhideable-target .navbar-nav > .active > a:focus,
+html.js .navbar-header .showhideable-target .navbar-nav > li > a,
+html.js .navbar-header .showhideable-target .navbar-nav > li > a:hover,
+html.js .navbar-header .showhideable-target .navbar-nav > li > a.active-trail,
+html.js .navbar-header .showhideable-target .navbar-nav > .open > a,
+html.js .navbar-header .showhideable-target .navbar-nav > .open > a:hover,
+html.js .navbar-header .showhideable-target .navbar-nav > .open > a:focus {
+  color: #fff;
+}
+html.js .navbar-header .showhideable-target .navbar-nav > li > a {
   line-height: initial;
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a.active-trail,
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  background-color: transparent;
-  color: #000;
+html.js .navbar-header .showhideable-target .navbar-nav > li > ul > li > a {
+  line-height: initial;
+  font-size: 1.2em;
 }
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
+html.js .navbar-header .showhideable-target a {
+  padding: 0.5em 5px;
+  margin: 0;
+}
+html.js .navbar-header .showhideable-target a:hover {
   text-decoration: underline;
 }
-@media screen and (min-width: 768px) {
-  .navbar-header {
-    margin-top: 0.25em;
-    margin-left: 1em;
-  }
-  .navbar-nav {
-    float: none;
-    margin: 0;
-  }
+html.js .navbar-header .toggler-open,
+html.js .navbar-header #toggle-header-menu.toggler-open,
+html.js .navbar-header #toggle-header-search.toggler-open {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10001;
 }
-.navbar-toggle-label {
-  display: none;
+html.js h1.site-name-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html.js header#navbar h1.site-name-link.toggler-open {
+  top: 0;
+  right: auto;
+  left: 0;
+}
+html.js header#navbar h1.site-name-link.toggler-open a.navbar-brand {
+  color: #fff;
+  z-index: 100002;
 }
 h1.site-name-link {
   margin: 0;
   padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 h1.site-name-link a.navbar-brand {
   float: none;
@@ -7631,14 +7672,8 @@ h1.site-name-link a.navbar-brand {
   display: inline-block;
   font-size: 1em;
 }
-header#navbar h1.site-name-link.toggler-open {
-  top: 0;
-  right: auto;
-  left: 0;
-}
-header#navbar h1.site-name-link.toggler-open a.navbar-brand {
-  color: #fff;
-  z-index: 100002;
+.navbar-toggle-label {
+  display: none;
 }
 .navbar-default {
   background-color: transparent;
