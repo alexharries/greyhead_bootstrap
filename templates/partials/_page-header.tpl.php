@@ -57,7 +57,7 @@
                     </div>
                   <?php endif; ?>
 
-                  <?php if ($navigation = render($page['navigation'])): ?>
+                  <?php if ($header_mainmenu = render($page['header_mainmenu'])): ?>
                     <div class="row">
                       <div class="container-fluid">
                         <div class="col-md-3"></div>
