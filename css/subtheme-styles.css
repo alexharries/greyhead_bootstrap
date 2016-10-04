@@ -7536,15 +7536,17 @@ html.js header#navbar {
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 0;
+  margin-bottom: 0;
 }
 html.js body > .main-container {
-  margin-top: 30px;
+  margin-top: 60px;
+  padding-top: 2em;
 }
 html.js body.admin-menu > header#navbar {
   top: 30px;
 }
 html.js body.admin-menu > .main-container {
-  margin-top: 85px;
+  margin-top: 90px;
 }
 html.js .navbar-header {
   float: none;
