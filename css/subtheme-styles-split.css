@@ -9404,6 +9404,8 @@ html.js h1.site-name-link {
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 60px;
+  overflow: hidden;
 }
 
 html.js header#navbar h1.site-name-link.toggler-open {
