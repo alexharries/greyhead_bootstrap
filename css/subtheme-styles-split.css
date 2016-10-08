@@ -9411,6 +9411,10 @@ h1.site-name-link a.navbar-brand {
   font-size: 1em;
 }
 
+.site-name-link-and-slogan .site-slogan {
+  display: none;
+}
+
 .navbar-toggle-label {
   display: none;
 }
