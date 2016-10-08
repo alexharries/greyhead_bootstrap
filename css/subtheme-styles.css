@@ -7512,6 +7512,12 @@ html.js .only-visible-without-js {
 .nav li {
   display: inline-block;
 }
+.paragraphs-item--large-quote-intro-text-style-intro-text {
+  text-align: center;
+  font-size: 2em;
+  color: #888;
+  padding: 2em 0;
+}
 .navbar-header a,
 .navbar-header .navbar-nav > .active > a,
 .navbar-header .navbar-nav > .active > a:hover,
