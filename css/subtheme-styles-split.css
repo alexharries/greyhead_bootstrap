@@ -9253,15 +9253,27 @@ html.js header#navbar {
 
 html.js body > .main-container {
   margin-top: 60px;
-  padding-top: 2em;
+  padding-top: 0;
 }
 
 html.js body.admin-menu > header#navbar {
-  top: 30px;
+  top: 100px;
 }
 
 html.js body.admin-menu > .main-container {
-  margin-top: 90px;
+  margin-top: 0;
+  border: #000 0 solid;
+  border-top-width: 131px;
+}
+
+@media (min-width: 480px) {
+  html.js body.admin-menu > header#navbar {
+    top: 40px;
+  }
+
+  html.js body.admin-menu > .main-container {
+    border-top-width: 40px;
+  }
 }
 
 html.js .navbar-header {

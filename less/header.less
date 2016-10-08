@@ -28,6 +28,8 @@ html.js {
     left: 0;
     right: 0;
     height: 60px;
+    //overflow: hidden;
+
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 0;
@@ -36,17 +38,33 @@ html.js {
 
   body > .main-container {
     margin-top: 60px;
-    padding-top: 2em;
+    padding-top: 0;
   }
 
   // Move the top menu and main container down to account for the admin menu.
   body.admin-menu > header#navbar {
-    top: 30px;
+    top: 100px;
   }
 
   body.admin-menu > .main-container {
-    margin-top: 90px;
-    //padding-top: 2em;
+    margin-top: 0;
+    border: #000 0 solid;
+
+    // We set border-top to be the height of the admin menu plus header, minus
+    // the !important-ed top-margin applied by admin menu CSS.
+    border-top-width: 131px;
+  }
+
+  @media (min-width: @screen-xs) {
+    body.admin-menu > header#navbar {
+      top: 40px;
+    }
+
+    body.admin-menu > .main-container {
+      // We set border-top to be the height of the admin menu plus header, minus
+      // the !important-ed top-margin applied by admin menu CSS.
+      border-top-width: 40px;
+    }
   }
 
   // Don't float .navbar-header.
