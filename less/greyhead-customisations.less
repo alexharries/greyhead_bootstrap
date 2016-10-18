@@ -26,6 +26,7 @@ html.js .toggler {
   padding: 5px;
   margin: 0.125em;
 }
+
 // Allow elements to be hidden only when JS is available.
 html.js .only-visible-with-js,
 html.js .only-visible-without-js {
@@ -45,4 +46,28 @@ html.js .only-visible-without-js {
   font-size: 2em;
   color: #888;
   padding: 2em 0;
+}
+
+// Carousel styling tweaks.
+.carousel-caption {
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+@media @tablet {
+  .carousel-caption {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 50px;
+  }
+}
+
+// Accessibility text.
+.accessibility-label {
+  display: none;
 }
