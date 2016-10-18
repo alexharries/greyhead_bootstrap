@@ -41,7 +41,7 @@
                 data-state="closed"
                 data-closed-class="icon_menu"
                 data-open-class="icon_close_alt2"
-                data-target="header-menu-collapsible"></span>
+                data-target="header-menu-collapsible"><span class="accessibility-label"><?php print t('Menu') ?></span></span>
 
               <div id="header-menu-collapsible" class="showhideable-target header-menu-container only-visible-without-js">
                 <nav role="navigation">
@@ -83,7 +83,7 @@
                 data-state="closed"
                 data-closed-class="icon_search"
                 data-open-class="icon_close_alt2"
-                data-target="header-search-collapsible"></span>
+                data-target="header-search-collapsible"><span class="accessibility-label"><?php print t('Search') ?></span></span>
 
               <div id="header-search-collapsible" class="showhideable-target header-search-container only-visible-without-js">
                 <div class="row">
