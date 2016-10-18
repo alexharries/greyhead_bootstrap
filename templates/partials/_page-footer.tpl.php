@@ -18,6 +18,33 @@ $secondary_navigation = render($page['secondary_navigation']);
 <div class="footer-wrapper">
   <footer class="footer">
 
+    <!-- Primary navigation, if available. -->
+    <nav role="navigation">
+      <?php if (isset($primary_nav_rendered) && !empty($primary_nav_rendered)): ?>
+        <div class="row">
+          <div class="container-fluid">
+            <div class="col-md-3 col-xs-1"></div>
+            <div class="col-md-6 col-xs-10">
+              <?php print $primary_nav_rendered; ?>
+            </div>
+            <div class="col-md-3 col-xs-1"></div>
+          </div>
+        </div>
+      <?php endif; ?>
+
+      <?php if (isset($header_mainmenu) && !empty($header_mainmenu)): ?>
+        <div class="row">
+          <div class="container-fluid">
+            <div class="col-md-3 col-xs-1"></div>
+            <div class="col-md-6 col-xs-10">
+              <?php print $header_mainmenu; ?>
+            </div>
+            <div class="col-md-3 col-xs-1"></div>
+          </div>
+        </div>
+      <?php endif; ?>
+    </nav>
+
     <!-- Secondary menu, if populated -->
     <?php if (!empty($secondary_nav) || !empty($secondary_navigation)): ?>
       <div class="row">
