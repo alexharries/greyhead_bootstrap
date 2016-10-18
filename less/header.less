@@ -30,40 +30,51 @@ html.js {
     height: 60px;
     //overflow: hidden;
 
-    z-index: 1;
+    z-index: 51;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 0;
     margin-bottom: 0;
   }
 
+  // Set the main header height as a variaboo.
+  @main-header-height: 60px;
+
+  // Set the navbar heights to what we expect them to be. This isn't the best
+  // approach but it's less-fiddly than trying to use javascript.
+  @admin-menu-height-smallest-screen: 50px;
+  @admin-menu-height-tablet: 28px;
+
   body > .main-container {
-    margin-top: 60px;
-    padding-top: 0;
+    margin-top: 0;
+    padding-top: @main-header-height;
   }
 
   // Move the top menu and main container down to account for the admin menu.
+  //body.admin-menu > header#navbar {
+  //  top: 100px;
+  //}
+  //
+  //body.admin-menu > .main-container {
+  //  padding-top: 160px;
+  //}
+
+  //@media (min-width: @screen-xs) {
   body.admin-menu > header#navbar {
-    top: 100px;
+    top: @admin-menu-height-smallest-screen;
   }
 
   body.admin-menu > .main-container {
-    margin-top: 0;
-    border: #000 0 solid;
-
-    // We set border-top to be the height of the admin menu plus header, minus
-    // the !important-ed top-margin applied by admin menu CSS.
-    border-top-width: 131px;
+    padding-top: @main-header-height;
   }
+  //}
 
-  @media (min-width: @screen-xs) {
+  @media @tablet {
     body.admin-menu > header#navbar {
-      top: 40px;
+      top: @admin-menu-height-tablet;
     }
 
     body.admin-menu > .main-container {
-      // We set border-top to be the height of the admin menu plus header, minus
-      // the !important-ed top-margin applied by admin menu CSS.
-      border-top-width: 40px;
+      //padding-top: @main-header-height;
     }
   }
 
@@ -149,47 +160,6 @@ html.js {
       &.header-search-container {
         padding-top: 100px;
       }
-
-      ul {
-        margin: 0.5em 0;
-        padding: 0;
-      }
-
-      &,
-      a,
-      .navbar-nav > .active > a,
-      .navbar-nav > .active > a:hover,
-      .navbar-nav > .active > a:focus,
-      .navbar-nav > li > a,
-      .navbar-nav > li > a:hover,
-      .navbar-nav > li > a.active-trail,
-      .navbar-nav > .open > a,
-      .navbar-nav > .open > a:hover,
-      .navbar-nav > .open > a:focus {
-        color: #fff;
-      }
-
-      // Override the navbar styling.
-      .navbar-nav > li > a {
-        line-height: initial;
-        font-size: 1.8em;
-      }
-
-      .navbar-nav > li > ul > li > a {
-        line-height: initial;
-        font-size: 1.2em;
-      }
-
-      a {
-        // We use pixels left and right instead of ems to align different
-        // font-sizes vertically.
-        padding: 0.5em 5px;
-        margin: 0;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
     }
 
     // Make sure togglers are moved to the top-right when open in the header.
@@ -201,29 +171,120 @@ html.js {
       right: 5px;
       z-index: 10001;
     }
-  }
-  // Don't pad the H1 with the site name in the header.
-  h1.site-name-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-height: 60px;
-    overflow: hidden;
 
-    a.navbar-brand {
+    // Don't pad the H1 with the site name in the header.
+    h1.site-name-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-height: 60px;
+      overflow: hidden;
+
+      a.navbar-brand {
+      }
+    }
+
+    header#navbar {
+      h1.site-name-link.toggler-open {
+        top: 0;
+        right: auto;
+        left: 0;
+
+        a.navbar-brand {
+          color: #fff;
+          z-index: 100002;
+        }
+      }
+    }
+
+    // Pad blocks in the header menus.
+    .header-menu-container {
+      .row {
+        margin-bottom: 3em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      ul ul {
+        padding-left: 1.5em;
+      }
     }
   }
 
-  header#navbar {
-    h1.site-name-link.toggler-open {
-      top: 0;
-      right: auto;
-      left: 0;
+  .navbar-header .showhideable-target,
+  footer.footer {
+    ul {
+      margin: 0.5em 0;
+      padding: 0;
 
-      a.navbar-brand {
-        color: #fff;
-        z-index: 100002;
+      ul {
+        margin-left: 2em;
       }
+    }
+
+    &,
+    a,
+    .navbar-nav > .active > a,
+    .navbar-nav > .active > a:hover,
+    .navbar-nav > .active > a:focus,
+    .navbar-nav > li > a,
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a.active-trail,
+    .navbar-nav > .open > a,
+    .navbar-nav > .open > a:hover,
+    .navbar-nav > .open > a:focus {
+      color: #fff;
+    }
+
+    // Fix for form elephants' styling.
+    .form-control {
+      color: #fff;
+      background-color: #222;
+      border-color: #555;
+    }
+
+    // Override the navbar styling.
+    .navbar-nav > li > a {
+      line-height: initial;
+      font-size: 1.8em;
+    }
+
+    .navbar-nav > li > ul > li > a {
+      line-height: initial;
+      font-size: 1.2em;
+    }
+
+    a {
+      // We use pixels left and right instead of ems to align different
+      // font-sizes vertically.
+      padding: 0.5em 5px;
+      margin: 0;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    // Style the language switcher.
+    #block-lang-dropdown-language {
+      margin-left: 40px;
+    }
+
+    // Move the language icon to the right of the dropdown.
+    form#lang-dropdown-form {
+      //div.form-item-lang-dropdown-select {
+      position: relative;
+
+      img.language-icon {
+        position: absolute;
+        left: -34px;
+        top: 50%;
+        margin-top: -6px;
+        width: 24px;
+      }
+      //}
     }
   }
 }
@@ -231,13 +292,25 @@ html.js {
 h1.site-name-link {
   margin: 0;
   padding: 0;
+  font-size: 1.5em;
+  max-width: 75%;
+
+  @media (min-width: @screen-xs) {
+    font-size: 2.5em;
+    max-width: 85%;
+  }
+
+  @media @normal {
+    font-size: 2.4em;
+  }
 
   a.navbar-brand {
     float: none;
-    padding: 0.5em 0.5em 0.25em 0.5em;
+    padding: 0.25em 0.5em;
     margin: 0;
     display: inline-block;
-    font-size: 1em;
+    line-height: initial;
+    font-size: inherit;
   }
 }
 
