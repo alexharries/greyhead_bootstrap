@@ -18,27 +18,11 @@ function greyhead_bootstrap_form_alter(array &$form, array &$form_state = array(
       // Adjust the search form's submit button with a custom theme function
       // which we use to change the button to a search icon.
       case 'search_form':
+        // Implement a theme wrapper to add a submit button containing a search
+        // icon directly after the input element.
 //        $form['basic']['keys']['#theme_wrappers'] = array('greyhead_bootstrap_search_form_wrapper');
         break;
       case 'search_block_form':
-//        $search_textfield_default_text = t('Type something and press enter to search...');
-//
-//        $form['search_block_form']['#title'] = t('Search'); // Change the text on the label element
-//        $form['search_block_form']['#title_display'] = 'invisible'; // Toggle label visibility
-//        $form['search_block_form']['#default_value'] = $search_textfield_default_text; // Set a default value for the textfield
-//        $form['actions']['submit']['#value'] = t('Search'); // Change the text on the submit button
-//        $form['actions']['submit']['#attributes']['alt'] = t('Search Button'); //add alt tag
-//
-//        unset($form['actions']['submit']['#value']); // Remove the value attribute from the input tag, since it is not valid when input type = image
-//        $form['actions']['submit'] = array(
-//          '#type' => 'image_button',
-//          '#src' => _bootstrap_icon('search'),
-//        );
-//
-//        // Add extra attributes to the text box
-//        $form['search_block_form']['#attributes']['onblur'] = "if (this.value == '') {this.value = '" . $search_textfield_default_text . "';}";
-//        $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == '" . $search_textfield_default_text . "') {this.value = '';}";
-        
 //        $form['search_block_form']['#theme_wrappers'] = array('greyhead_bootstrap_search_form_wrapper');
         break;
       
